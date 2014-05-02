@@ -41,11 +41,11 @@ end
 Option.all.each do |option|
   visitor_cookie = (100..999).to_a.sample
   if options_1.to_s.match(option.content)
-    Answer.create(content: options_1.sample, option_id: option.question_id, visitor_cookie: visitor_cookie)
+    Answer.create(option_id: option.id, question_id: option.question_id, visitor_cookie: visitor_cookie)
   elsif options_2.to_s.match(option.content)
-    Answer.create(content: options_2.sample, option_id: option.question_id, visitor_cookie: visitor_cookie)
+    Answer.create(option_id: option.id, question_id: option.question_id, visitor_cookie: visitor_cookie)
   else
-    Answer.create(content: options_3.sample, option_id: option.question_id, visitor_cookie: visitor_cookie)
+    Answer.create(option_id: option.id, question_id: option.question_id, visitor_cookie: visitor_cookie)
   end
 end
 
