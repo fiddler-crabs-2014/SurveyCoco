@@ -38,14 +38,26 @@ Question.all.each do |question|
   end
 end
 
-Option.all.each do |option|
+# Option.all.each do |option|
+#   visitor_cookie = (100..999).to_a.sample
+#   if options_1.to_s.match(option.content)
+#     Answer.create(option_id: option.id, question_id: option.question_id, visitor_cookie: visitor_cookie)
+#   elsif options_2.to_s.match(option.content)
+#     Answer.create(option_id: option.id, question_id: option.question_id, visitor_cookie: visitor_cookie)
+#   else
+#     Answer.create(option_id: option.id, question_id: option.question_id, visitor_cookie: visitor_cookie)
+#   end
+# end
+
+Question.all.each do |question|
   visitor_cookie = (100..999).to_a.sample
-  if options_1.to_s.match(option.content)
-    Answer.create(option_id: option.id, question_id: option.question_id, visitor_cookie: visitor_cookie)
-  elsif options_2.to_s.match(option.content)
-    Answer.create(option_id: option.id, question_id: option.question_id, visitor_cookie: visitor_cookie)
+  sample_option = question.options.sample
+  if options_1.to_s.match(sample_option.content)
+    Answer.create(option_id: sample_option.id, question_id: question.id, visitor_cookie: visitor_cookie)
+  elsif options_2.to_s.match(sample_option.content)
+    Answer.create(option_id: sample_option.id, question_id: question.id, visitor_cookie: visitor_cookie)
   else
-    Answer.create(option_id: option.id, question_id: option.question_id, visitor_cookie: visitor_cookie)
+    Answer.create(option_id: sample_option.id, question_id: question.id, visitor_cookie: visitor_cookie)
   end
 end
 
