@@ -9,7 +9,7 @@ post '/user_verification' do
 
    if @user
      session[:user_id] = @user.id
-     redirect '/profile/' + @user.id
+     redirect '/profile/' + @user.id.to_s
    else
      redirect '/'
    end
@@ -20,13 +20,19 @@ get '/register' do
 end
 
 post '/create_user' do
-  # requires error logic to take into account whether email is already in use
-  @user = User.create!({name: params[:name], email: params[:email], password: params[:password]})
+  @user = User.create({name: params[:name], email: params[:email], password: params[:password]})
   session[:user_id] = @user.id
-  redirect '/profile/' + @user.id
+  puts @user.id
+  redirect '/profile/' + @user.id.to_s
 end
 
 get '/profile/:user_id' do
+  @user = User.find(params[:user_id])
   @surveys = Survey.where(user_id: params[:user_id])
   erb :profile
+end
+
+get '/logout' do
+  session.clear
+  redirect '/'
 end

@@ -3,7 +3,7 @@
   <h2>Your surveys....</h2>
   <ul id="">
     <% @user.surveys.each do |survey| %>
-      <li><a href="/survey/<%= survey.id %>"><%= survey.title %></a></li>
+      <li><a href="/survey/<%= survey.id %>"><%= survey.survey_name %></a></li>
     <% end %>
   </ul>
 </div>
