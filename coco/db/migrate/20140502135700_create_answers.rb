@@ -3,7 +3,7 @@ class CreateAnswers < ActiveRecord::Migration
       create_table :answers do |t|
       t.belongs_to :option
       t.integer :question_id
-      t.integer :visitor_cookie
+      t.string :visitor_cookie
 
       t.timestamps
     end

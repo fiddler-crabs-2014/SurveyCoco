@@ -7,7 +7,6 @@
 
 .container h1 {
   font-size: 17pt;
-
 }
 
 nav {
@@ -72,4 +71,8 @@ form.quirks {
   text-align: right;
   margin-right: 20px;
   width: 200px;
+}
+
+.question {
+  margin: 20px 0;
 }
