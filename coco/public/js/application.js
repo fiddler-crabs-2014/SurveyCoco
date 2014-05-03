@@ -30,7 +30,7 @@ $(document).ready(function () {
       var generated_options = generate_options(options);
       console.log(response.visitor_cookie);
 
-      $('#new_questions').append('<div class="question"><h4>' + content + '</h4><form action="/new_answer" method="post">' + generated_options.join("") + '<input type="hidden" name="question_id" value="' + response.question_id + '"><input type="hidden" name="visitor_cookie" value="' + response.visitor_cookie + '"><input type="submit" value="Answer"></form></div>');
+      $('#new_questions').append('<div class="question"><h4>' + content + '</h4>' + generated_options.join("") + '<input type="hidden" name="question_id" value="' + response.question_id + '"></div>');
 
       $('input[type="text"]').val('');
 
