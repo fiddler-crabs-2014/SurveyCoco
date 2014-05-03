@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>New Survey</h1>
+
+  <form id="new_survey" method="post" action="/create_survey">
+    <label class="label" for="survey_name">Survey Name</label>
+    <input type="text" name="survey_name" placeholder="e.g. My Badass Kitten Survey" value="<%= @email %>"><br>
+    <div class="submit"><input type="submit" value="Create Survey"></div>
+  </form>
+
+</div>

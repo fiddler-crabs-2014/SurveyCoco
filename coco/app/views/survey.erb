@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Survey <%= @survey.name %></h1>
+
+  <!-- Add a div here that only shows up when @questions.empty? and says "You haven't created any questions yet!"-->
+
+  <% @questions.each do |question| %>
+    <%= question.content %>
+    <% question.options.each do |option| %>
+      <%= option.content %>
+    <% end %>
+  <% end %>
+
+
+
+  <div id="new_questions">
+
+  </div>
+
+  <form action="/new_question" id="new_question" method="post">
+    <label for="content">Question: </label>
+    <input type="text" name="content" placeholder="e.g., What's your faaaaaaavorite dinosaur?">
+    <label for="options">Options: </label>
+    <input type="text" name="options" placeholder="e.g., pterodactyl, stegosaurus, t-rex">
+    <input type="hidden" name="survey_id" value="<%= @survey.id %>">
+    <input type="submit" value="Add Question to Your Survey">
+  </form>
+</div>

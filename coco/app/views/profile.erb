@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Welcome, <%= @user.name %>!</h1>
+  <h2>Your surveys....</h2>
+  <ul id="">
+    <% @user.surveys.each do |survey| %>
+      <li><a href="/survey/<%= survey.id %>"><%= survey.title %></a></li>
+    <% end %>
+  </ul>
+</div>
