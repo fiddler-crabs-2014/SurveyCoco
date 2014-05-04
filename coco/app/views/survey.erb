@@ -1,8 +1,8 @@
 <div class="container">
-  <h1>Survey <%= @survey.survey_name %></h1>
+  <h1><%= @survey.survey_name.capitalize %></h1>
 
   <!-- Add a div here that only shows up when @questions.empty? and says "You haven't created any questions yet!"-->
-  <form action="/new_answer" method="post">
+  <form action="/new_answer" method="post" id="new_answer">
     <% @questions.each do |question| %>
       <div class="question">
         <h4><%= question.content %></h4>
@@ -13,20 +13,20 @@
     <% end %>
 
     <div id="new_questions"></div>
-    <button type="submit">Submit survey</button>
     <input type="hidden" name="visitor_cookie" value="<%= @visitor_cookie %>">
-</form>
+    <button type="submit"  class="button">Submit survey</button>
+  </form>
 
   <% if session[:user_id] == @survey.user_id %>
-    <p><hr></p>
+    <hr>
     <form action="/new_question" id="new_question" method="post">
-      <label for="content">Question: </label>
-      <input type="text" name="content" placeholder="e.g., What's your faaaavorite dinosaur?">
-      <label for="options">Options: </label>
-      <input type="text" name="options" placeholder="e.g., pterodactyl, stegosaurus, t-rex">
+      <p><label for="content">Question: </label>
+      <input type="text" name="content" placeholder="e.g., What's your faaaavorite dinosaur?"></p>
+      <p><label for="options" style="margin-right: 28px;">Options: </label>
+      <input type="text" name="options" placeholder="separate values with commas &mdash; e.g., pterodactyl, stegosaurus, t-rex"></p>
       <input type="hidden" name="visitor_cookie" value="<%= @visitor_cookie %>">
       <input type="hidden" name="survey_id" value="<%= @survey.id %>">
-      <button type="submit">Add Question to Your Survey</button>
+      <button type="submit" class="button">Add Question to Your Survey</button>
     </form>
   <% end %>
 </div>
