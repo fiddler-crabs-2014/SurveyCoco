@@ -46,5 +46,18 @@ post '/new_question' do
   return {question_id: @question.id, content: @content, options: @options, visitor_cookie: @visitor_cookie}.to_json
 end
 
+get '/results/:survey_id' do
+
+  @survey = Survey.find(params[:survey_id])
+
+  erb :results
+
+end
+
+# survey1.questions[0].options[0].answers
+
+
+
+
 # @questions = ['who?','what?','where?','why?']
 # @options = [['me','myself','i'],['this','that','no idea'],['there','over there','thar','that way'],['chicken butt','because','i said so','that\'s the way it goes']]

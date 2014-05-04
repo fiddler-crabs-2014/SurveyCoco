@@ -1,9 +1,10 @@
 <div class="container">
-  <h1>Welcome, <%= @user.name %>!</h1>
-  <h2>Your surveys....</h2>
-  <ul id="">
+  <h2>Welcome, <%= @user.name.capitalize %>!</h2>
+  <h3>Your surveys....</h3>
+  <ul id="your_surveys">
     <% @user.surveys.each do |survey| %>
-      <li><a href="/survey/<%= survey.id %>"><%= survey.survey_name %></a></li>
+      <li><a href="/survey/<%= survey.id %>"><%= survey.survey_name.capitalize %></a> | <a href="/results/<%= survey.id %>"><%= survey.survey_name.capitalize %> Results</a></li>
+      <hr>
     <% end %>
   </ul>
 </div>

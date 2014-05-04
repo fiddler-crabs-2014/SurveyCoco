@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Survey <%= @survey.survey_name %></h1>
+
+  <% @survey.questions.each do |question| %>
+
+    <h4><%= question.content %></h4>
+    <% question.options.each do |option| %>
+      <p>"<%= option.content %>"<span class="votes"> (<%= option.answers.length %> votes)</span></p>
+    <% end %>
+    <hr>
+
+  <% end %>
+
+
+<!-- survey1.questions[0].options[0].answers -->
+
+
+</div>
