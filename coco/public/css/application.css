@@ -172,3 +172,7 @@ form.quirks {
 .votes {
   color: #e74c3c;
 }
+
+.hidden {
+  display: none;
+}

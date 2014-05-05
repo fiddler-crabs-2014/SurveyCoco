@@ -28,10 +28,9 @@ $(document).ready(function () {
       var content = response.content
       var options = response.options
       var generated_options = generate_options(options);
-      console.log(response.visitor_cookie);
 
       $('#new_questions').append('<div class="question"><h4>' + content + '</h4>' + generated_options.join("") + '<input type="hidden" name="question_id" value="' + response.question_id + '"></div>');
-
+      $('#no_questions').addClass('hidden');
       $('input[type="text"]').val('');
 
     }).fail( function(response) { console.log('you failllllled: ' + response) });

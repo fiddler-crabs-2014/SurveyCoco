@@ -3,6 +3,10 @@
 
   <!-- Add a div here that only shows up when @questions.empty? and says "You haven't created any questions yet!"-->
   <form action="/new_answer" method="post" id="new_answer">
+    <% if @questions.length == 0 %>
+      <div id="no_questions">You have no questions in your survey yet. Add some below!</div>
+    <% end %>
+
     <% @questions.each do |question| %>
       <div class="question">
         <h4><%= question.content %></h4>

@@ -28,8 +28,12 @@ end
 
 get '/profile/:user_id' do
   @user = User.find(params[:user_id])
-  @surveys = Survey.where(user_id: params[:user_id])
-  erb :profile
+  if @user.id == session[:user_id]
+    @surveys = Survey.where(user_id: params[:user_id])
+    erb :profile
+  else
+    erb :fail
+  end
 end
 
 get '/logout' do
