@@ -3,7 +3,9 @@
 
   <% @survey.questions.each do |question| %>
 
-    <h4><%= question.content %></h4>
+    <h4><%= question.content %>
+
+    </h4>
     <% question.options.each do |option| %>
       <p>"<%= option.content %>"<span class="votes"> (<%= option.answers.length %> votes)</span></p>
     <% end %>

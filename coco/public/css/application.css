@@ -42,7 +42,25 @@ nav .brand, nav .brand a {
   display: inline-block;
 }
 
-nav .brand {
+nav .brand:hover {
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+nav .brand:hover {
+  -webkit-transform: rotate(-1deg);
+  -moz-transform: rotate(-1deg);
+  -o-transform: rotate(-1deg);
+  -ms-transform: rotate(-1deg);
+  transform: rotate(-1deg);
+  -webkit-transition: all 0.15s ease;
+  -moz-transition: all 0.15s ease;
+  -o-transition: all 0.15s ease;
+  -ms-transition: all 0.15s ease;
+  transition: all 0.15s ease;
 }
 
 nav ul {
@@ -81,10 +99,12 @@ nav li a:hover {
   margin-top: -266px;
 }
 
-.koko_logo {
+.koko_logo, .kitten_logo {
   float: left;
+  width: 572px;
   z-index: -1;
 }
+
 
 .right_blurb {
   color: #3498db;
