@@ -4,4 +4,5 @@ class Answer < ActiveRecord::Base
   validates :visitor_cookie, presence: true
 
   belongs_to :option
+ 
 end
